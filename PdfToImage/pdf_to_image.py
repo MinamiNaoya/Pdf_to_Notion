@@ -10,7 +10,7 @@ os.environ["PATH"] += os.pathsep + str(poppler_dir)
 HOME_DIR = os.path.expanduser("~")
 
 # pdf_fileの絶対パスをここに入力
-input_abs_pdfdir_path = r"C:\Users\owner\OneDrive\デスクトップ\PDF_TO_NOTION_project\Pdf_to_Notion\PdfToImage\pdf_file"
+input_abs_pdfdir_path = r""
 abs_pdf_file_dirpath = Path(input_abs_pdfdir_path)
 pdf_file_path = abs_pdf_file_dirpath.joinpath(str(input("Enter pdf file name!:"))) # -> os.でファイル名を取ってきてもいいかも
 # PDF -> Image に変換（150dpi）
@@ -18,7 +18,7 @@ pages = convert_from_path(str(pdf_file_path), 150)
 
 # image_fileの絶対パスをここに入力
 
-input_abs_imgdir_path = r"C:\Users\owner\OneDrive\デスクトップ\PDF_TO_NOTION_project\Pdf_to_Notion\PdfToImage\image_file"
+input_abs_imgdir_path = r""
 
 abs_image_dir_path = Path(input_abs_imgdir_path)
 
