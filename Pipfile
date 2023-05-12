@@ -11,6 +11,7 @@ upload_images = "pipenv run python PdfToImage/functional/upload_images_to_notion
 delete_images = "pipenv run python PdfToImage/delete_images.py"
 delete_pdfs = "pipenv run python PdfToImage/delete_pdfs.py"
 deploy_web = "pipenv run python web/main.py"
+pdf_to_image_pass = "pipenv run python PdfToImage/unlock_pdf_to_image.py"
 
 [packages]
 PyDrive = "*"
@@ -19,3 +20,4 @@ pdf2image = "*"
 pyinstaller = "*"
 flask = "*"
 boto3 = "*"
+pikepdf = "*"
