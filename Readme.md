@@ -59,6 +59,20 @@ pipenv run pdf_to_image
 
 PDFから画像化されると、image_fileディレクトリに保存される。
 
+### パスワード付きPDFの画像化
+
+```:bash
+pipenv run pdf_to_image_pass
+```
+
+PPpdf_to_image_divided
+
+### 3×2分割にしたのPDFの画像化
+
+```:bash
+pipenv run pdf_to_image_divided
+```
+
 ## Notionインテグレーションについて
 
 (https://www.notion.so/ja-jp/help/create-integrations-with-the-notion-api)
