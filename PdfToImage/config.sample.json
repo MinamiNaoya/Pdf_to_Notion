@@ -1,4 +1,17 @@
 {
-    "Notion_token": ""
+    "Notion" : [
+        {
+            "token": ""
+        }
+    ],
+    "device" : [
+        {
+            "pdf_file_path": ""
+        },
+        {
+            "image_file_path":""
+        }
+    ]
+
     
 }
