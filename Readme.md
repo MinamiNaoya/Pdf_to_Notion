@@ -89,7 +89,7 @@ pipenv run delete_images
 ## ウェブアプリケーションのデプロイ
 
 ```:bash
-pipenv run deploy web
+pipenv run deploy_web
 ```
 
 これを行って、ブラウザのアドレスバーに127.0.0.1:5000を入力するとアクセスが可能になる。

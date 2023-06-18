@@ -17,7 +17,7 @@ os.environ["PATH"] += os.pathsep + str(poppler_dir)
 
 HOME_DIR = os.path.expanduser("~")
 # PDF -> Image に変換（150dpi）
-pages = convert_from_path(str(devide_six_pdf.output_pdf_path), 300)
+pages = convert_from_path(str(devide_six_pdf.output_pdf_path), 300, use_cropbox=True)
 
 abs_image_dir_path = Path(input_abs_imgdir_path)
 
