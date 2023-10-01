@@ -82,7 +82,7 @@ for i in range(len(pdf_reader.pages)):
 input_pdf.close()
 
 # Save the output PDF file
-output_pdf_path = "PdfToImage\pdf_file" + "\devided" + str(file_name)
+output_pdf_path = "PdfToImage\pdf_file" + "\divided" + str(file_name)
 
 with open(output_pdf_path, "wb") as output_pdf:
     pdf_writer.write(output_pdf)

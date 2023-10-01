@@ -6,3 +6,5 @@ def delete_images():
     os.makedirs('PdfToImage/image_file', exist_ok=True)
 
 delete_images()
+
+print("success!")

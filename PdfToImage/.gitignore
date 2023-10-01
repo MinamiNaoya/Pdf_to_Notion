@@ -1,2 +1,4 @@
 # ここにローカルでのpdf_fileのパスや画像格納先のフォルダもパスを記載する。config.sample.jsonをコピー
 config.json
+pdf_file
+image_file
