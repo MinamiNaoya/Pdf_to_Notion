@@ -107,3 +107,12 @@ pipenv run deploy_web
 ```
 
 これを行って、ブラウザのアドレスバーに127.0.0.1:5000を入力するとアクセスが可能になる。
+
+## pdfを4分割して画像化
+```:bash
+pipenv run pdf_to_image_divided_four
+```
+## pdfを6分割して画像化
+```:bash
+pipenv run pdf_to_image_divided_six
+```
