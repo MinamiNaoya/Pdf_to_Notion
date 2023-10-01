@@ -12,7 +12,7 @@ delete_images = "pipenv run python PdfToImage/delete_images.py"
 delete_pdfs = "pipenv run python PdfToImage/delete_pdfs.py"
 deploy_web = "pipenv run python web/main.py"
 pdf_to_image_pass = "pipenv run python PdfToImage/unlock_pdf_to_image.py"
-pdf_to_image_divided = "pipenv run python PdfToImage/divide_pdf_to_image.py"
+pdf_to_image_divided_six = "pipenv run python PdfToImage/divide_pdf_to_image.py"
 pdf_to_image_divided_four = "pipenv run python PdfToImage/divided_four_pdf_to_image.py"
 
 [packages]
