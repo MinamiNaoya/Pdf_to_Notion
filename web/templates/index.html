@@ -3,11 +3,71 @@
     <head>
         <meta charset="UTF-8">
         <title>PdfToNotion</title>
+        <style>
+            body {
+                font-family: 'Helvetica', Arial, sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .header {
+                background-color: #333;
+                color: #fff;
+                padding: 20px;
+            }
+    
+            h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+                color: #333;
+            }
+    
+            .content {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s, box-shadow 0.3s;
+            }
+    
+            button:hover {
+                background-color: #2980b9;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+        </style>
     </head>
     <body>
         <div class="content">
             <h1>PdfToNotion</h1>
-            <p><button onclick="location.href='pdf_to_image'">pdfから画像の作成</button></p>
+            <p>
+                <button onclick="location.href='pdf_to_image'">pdfから画像の作成</button>
+            </p>
+            <p>
+                <button id="deleteButton">作成した画像の削除</button>
+            </p>
+        </div>
+        <script src="../../static/JS/delete_images.js"></script>
+        <script>
+            // JavaScriptファイルで定義された関数を呼び出す
+            deleteImages();
+        </script>
+                
     </body>
 
 

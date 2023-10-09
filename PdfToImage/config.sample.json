@@ -11,7 +11,10 @@
         {
             "image_file_path":""
         }
+    ],
+    "server" : [
+        {
+            "is_server": false
+        }
     ]
-
-    
 }

@@ -51,7 +51,7 @@ for i in range(len(pdf_reader.pages)):
     upper_medium = ((x0 + x1) / 2, y1)
     upper_right = (x1, y1)
     
-    # 6つの領域に分割
+    # 4つの領域に分割
     p1.cropbox.lower_left = one_second_left
     p1.cropbox.upper_right = upper_medium
     p2.cropbox.lower_left = one_second_medium
@@ -60,12 +60,11 @@ for i in range(len(pdf_reader.pages)):
     p3.cropbox.upper_right = one_second_medium
     p4.cropbox.lower_left = lower_medium
     p4.cropbox.upper_right = one_second_right
-
-    
     pdf_writer.add_page(p1)
     pdf_writer.add_page(p2)
     pdf_writer.add_page(p3)
     pdf_writer.add_page(p4)
+        
 
     
     
