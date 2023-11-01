@@ -71,9 +71,12 @@ def download_file(name):
 
 @app.route('/convert_pdf_to_image', methods=['POST'])
 def convert_pdf_to_image():
+    """_summary_
+    is_server : bool リモートサーバーでデプロイされているか、ローカルでデプロイされているか
+    """
     # フォームからアップロードされたファイルを取得
     uploaded_file = request.files['pdf_file']
-    if not upload_file:
+    if not uploaded_file:
         raise FileNotFoundError('File Not Found Error')
     
     # 一時的なディレクトリの作成
@@ -87,12 +90,11 @@ def convert_pdf_to_image():
     
     # コマンドを実行してPDFから画像に変換
     try:
-        result = subprocess.Popen(['pipenv', 'run', 'pdf_to_image'], stdin=subprocess.PIPE, shell=True)
-        result.communicate(input=temp_filepath.encode())
-        
+        result = subprocess.run('pipenv run pdf_to_image', stdin=subprocess.PIPE, stderr=subprocess.PIPE)
         
         if is_server:
-            return send_file(result, as_attachment=True, download_name='images.zip', mimetype='application/zip')
+            send_file(result, as_attachment=True, download_name='images.zip', mimetype='application/zip')
+            return render_template("/pdf_to_image/pdf_to_image_successed.html")
             
         if not is_server:
             return render_template("/pdf_to_image/pdf_to_image_successed.html")
@@ -104,7 +106,7 @@ def convert_pdf_to_image():
 def delete_images():
     try:
         subprocess.run(['pipenv', 'run', 'delete_images'], shell=True)
-        return("delete images successfully!")
+        return render_template("/delete_images/delete_images_successed.html")
     except subprocess.CalledProcessError as e:
         return f"Error: {e.output.decode()}"
     

@@ -1,4 +1,4 @@
-const configPath = '../../Pdf_to_Notion/PdfToImage/config.json';
+const configPath = '../../../PdfToImage/config.json';
 
 // JSONファイルを非同期に読み込む
 fetch(configPath)
@@ -33,6 +33,7 @@ function deleteImages() {
     .then(response => {
         // レスポンスを処理
         if (response.ok) {
+            window.location.href = '../../../templates\delete_images\delete_images_successed.html'
             showMessage('画像の削除が成功しました。');
         } else {
             showMessage('画像の削除に失敗しました。');

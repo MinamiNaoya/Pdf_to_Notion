@@ -3,6 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title> PDF_TO_IMAGE</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var button = document.querySelector('.submit-label');
+                var form = document.getElementById('pdf_to_image');
+        
+                button.addEventListener('click', function() {
+                    form.submit();
+                });
+            });
+        </script>
+        
         <style>
             body {
                 font-family: 'Helvetica', Arial, sans-serif;
@@ -65,12 +76,12 @@
         <div class="header">
             <h1>PDF_TO_IMAGE</h1>
         </div>
-        <div class~"content">
-            <form action="/convert_pdf_to_image" method="post" enctype="multipart/form-data">
+        <div class="content">
+            <form action="/convert_pdf_to_image" method="POST" enctype="multipart/form-data" id="pdf_to_image">
                 <input type="file" id="myFile" name="pdf_file">
                 <label for="myFile" class="upload-label">ファイルを選択</label>
-                <input type="submit" value="PDFの画像化">
-                <label for="myFile" class="submit-label">変換開始</label>
+                <label for="pdf_to_image" class="submit-label"></label>
+                <button type="button" id="pdf_to_image" class="submit-label">変換開始</button>
             </form>
         </div>   
             
