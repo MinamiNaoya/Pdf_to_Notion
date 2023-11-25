@@ -6,3 +6,4 @@ def delete_pdfs():
     os.makedirs('PdfToImage/pdf_file', exist_ok=True)
 
 delete_pdfs()
+print("success!")

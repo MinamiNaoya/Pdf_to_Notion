@@ -5,7 +5,7 @@ import PyPDF2
 import copy
 
 
-with open("PdfToImage\config.json", encoding='utf-8') as f:
+with open("PdfToImage/config.json", encoding='utf-8') as f:
     config = json.load(f)
     input_abs_pdfdir_path = config["device"][0]["pdf_file_path"]
     input_abs_imgdir_path = config["device"][0]["image_file_path"]
@@ -60,10 +60,10 @@ for i in range(len(pdf_reader.pages)):
     p3.cropbox.upper_right = one_second_medium
     p4.cropbox.lower_left = lower_medium
     p4.cropbox.upper_right = one_second_right
-    pdf_writer.add_page(p1)
-    pdf_writer.add_page(p2)
     pdf_writer.add_page(p3)
+    pdf_writer.add_page(p1)
     pdf_writer.add_page(p4)
+    pdf_writer.add_page(p2)
         
 
     
@@ -74,7 +74,7 @@ for i in range(len(pdf_reader.pages)):
 input_pdf.close()
 
 # Save the output PDF file
-output_pdf_path = "PdfToImage\pdf_file" + "\divided_four" + str(file_name)
+output_pdf_path = "PdfToImage/pdf_file" + "/divided_four" + str(file_name)
 
 with open(output_pdf_path, "wb") as output_pdf:
     pdf_writer.write(output_pdf)
@@ -82,4 +82,3 @@ with open(output_pdf_path, "wb") as output_pdf:
 
 
 print("PDF page divided into four equal parts successfully!")
-

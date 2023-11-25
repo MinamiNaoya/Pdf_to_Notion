@@ -6,14 +6,15 @@ import socket
 import zipfile
 import logging
 
-with open("PdfToImage\config.json", encoding='utf-8') as f:
+with open("PdfToImage/config.json", encoding='utf-8') as f:
     config = json.load(f)
     input_abs_pdfdir_path = config["device"][0]["pdf_file_path"]
     input_abs_imgdir_path = config["device"][0]["image_file_path"]
     is_server = config["server"][0]["is_server"]
-    
+
+
 # poppler/binを環境変数PATHに追加する
-poppler_dir = Path(__file__).parent.absolute() / "poppler/bin"
+poppler_dir = Path(__file__).parent.absolute() / "poppler\bin"
 os.environ["PATH"] += os.pathsep + str(poppler_dir)
 
 HOME_DIR = os.path.expanduser("~")
