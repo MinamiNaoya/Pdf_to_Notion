@@ -60,10 +60,10 @@ for i in range(len(pdf_reader.pages)):
     p3.cropbox.upper_right = one_second_medium
     p4.cropbox.lower_left = lower_medium
     p4.cropbox.upper_right = one_second_right
-    pdf_writer.add_page(p1)
-    pdf_writer.add_page(p2)
     pdf_writer.add_page(p3)
+    pdf_writer.add_page(p1)
     pdf_writer.add_page(p4)
+    pdf_writer.add_page(p2)
         
 
     
