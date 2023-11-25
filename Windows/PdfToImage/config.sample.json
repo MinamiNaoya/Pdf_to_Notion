@@ -1,0 +1,20 @@
+{
+    "Notion" : [
+        {
+            "token": ""
+        }
+    ],
+    "device" : [
+        {
+            "pdf_file_path": ""
+        },
+        {
+            "image_file_path":""
+        }
+    ],
+    "server" : [
+        {
+            "is_server": false
+        }
+    ]
+}
