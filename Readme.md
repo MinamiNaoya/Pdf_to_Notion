@@ -1,6 +1,6 @@
 # PDF-to-Notion
 
-![picture 1](images/2ca18873ccf9748ba73d2b3a787d42e5c817b1546a8e00b64bfbc20bddc90f05.png)  
+![picture 1](images/free-notion-2296040-1911999.png)  
 
 ![picture 2](images/4fe6d039b30e0fcde1099a7f2276bf794a70058b786361bb865db2746d6b7886.png)  
 
