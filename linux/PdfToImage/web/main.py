@@ -8,7 +8,7 @@ import logging
 import json
 
 
-UPLOAD_FOLDER = 'PdfToImage\pdf_file'
+UPLOAD_FOLDER = 'PdfToImage/pdf_file'
 ALLOWED_EXTENSIONS = {'pdf'} # 拡張子の設定
 
 pf = platform.system()
@@ -19,7 +19,7 @@ elif pf == 'Darwin':
 elif pf == 'Linux':
     OS = 'Linux'
 
-with open("PdfToImage\config.json", encoding='utf-8') as f:
+with open("PdfToImage/config.json", encoding='utf-8') as f:
     config = json.load(f)
     is_server = config["server"][0]["is_server"]
     
