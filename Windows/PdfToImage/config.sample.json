@@ -6,9 +6,7 @@
     ],
     "device" : [
         {
-            "pdf_file_path": ""
-        },
-        {
+            "pdf_file_path": "",
             "image_file_path":""
         }
     ],
