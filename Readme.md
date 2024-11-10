@@ -116,3 +116,8 @@ pipenv run pdf_to_image_divided_four
 ```:bash
 pipenv run pdf_to_image_divided_six
 ```
+
+## pdfを9分割して画像化
+```:bash
+pipenv run pdf_to_image_divided_nine
+```

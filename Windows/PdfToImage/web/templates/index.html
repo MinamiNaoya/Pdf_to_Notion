@@ -51,6 +51,7 @@
             }
 
         </style>
+        <script src="../../static/JS/delete_images.js"></script>
     </head>
     <body>
         <div class="content">
@@ -59,14 +60,10 @@
                 <button onclick="location.href='pdf_to_image'">pdfから画像の作成</button>
             </p>
             <p>
-                <button id="deleteButton">作成した画像の削除</button>
+                <button id="deleteButton" onclick="deleteImages()">作成した画像の削除</button>
             </p>
         </div>
-        <script src="../../static/JS/delete_images.js"></script>
-        <script>
-            // JavaScriptファイルで定義された関数を呼び出す
-            deleteImages();
-        </script>
+        
                 
     </body>
 

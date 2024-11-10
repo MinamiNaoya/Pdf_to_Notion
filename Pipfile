@@ -16,7 +16,7 @@ pdf_to_image_divided_six = "pipenv run python PdfToImage/divide_pdf_to_image.py"
 pdf_to_image_divided_four = "pipenv run python PdfToImage/divided_four_pdf_to_image.py"
 pdf_to_image_divided_four_toxic = "pipenv run python PdfToImage/"
 pdf_to_image_by_firefox = "pipenv run python PdfToImage/pdf_to_image_by_firefox.py"
-
+pdf_to_image_divided_nine = "pipenv run python PdfToImage/divide_nine_pdf_to_image.py"
 [packages]
 PyDrive = "*"
 requests = "*"
