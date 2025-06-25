@@ -52,21 +52,33 @@ for i in range(len(pdf_reader.pages)):
     # Coordinates for 9 sections (3x3 grid) - now indexed row by row (horizontally)
     coords = [
 
-        ((x0, y0), (x0 + third_width, y1 - 2 * third_height)),
-        ((x0, y1 - 2 * third_height), (x0 + third_width, y1 - third_height)),
-        ((x0, y1 - third_height), (x0 + third_width, y1)),
+        ((x0, y0), (x0 + third_width, y1 - 2 * third_height)),  # 7
+        ((x0, y1 - 2 * third_height), (x0 + third_width, y1 - third_height)),  # 4
+        ((x0, y1 - third_height), (x0 + third_width, y1)),  # 1
 
-        ((x0 + third_width, y0), (x0 + 2 * third_width, y1 - 2 * third_height)),
-        ((x0 + third_width, y1 - 2 * third_height), (x0 + 2 * third_width, y1 - third_height)),
-        ((x0 + third_width, y1 - third_height), (x0 + 2 * third_width, y1)),
+        ((x0 + third_width, y0), (x0 + 2 * third_width, y1 - 2 * third_height)),  # 8
+        ((x0 + third_width, y1 - 2 * third_height), (x0 + 2 * third_width, y1 - third_height)),  # 5
+        ((x0 + third_width, y1 - third_height), (x0 + 2 * third_width, y1)),  # 2
 
-        ((x0 + 2 * third_width, y0), (x1, y1 - 2 * third_height)),
-        ((x0 + 2 * third_width, y1 - 2 * third_height), (x1, y1 - third_height)),
-        ((x0 + 2 * third_width, y1 - third_height), (x1, y1)),
+        ((x0 + 2 * third_width, y0), (x1, y1 - 2 * third_height)),  # 9
+        ((x0 + 2 * third_width, y1 - 2 * third_height), (x1, y1 - third_height)),  # 6
+        ((x0 + 2 * third_width, y1 - third_height), (x1, y1)),  # 3
+    ]
+    # Coordinates for 9 sections (3x3 grid) - now indexed row by row (horizontally)
+    coords_correct = [
+        ((x0, y1 - third_height), (x0 + third_width, y1)),  # 1
+        ((x0 + third_width, y1 - third_height), (x0 + 2 * third_width, y1)),  # 2
+        ((x0 + 2 * third_width, y1 - third_height), (x1, y1)),  # 3
+        ((x0, y1 - 2 * third_height), (x0 + third_width, y1 - third_height)),  # 4
+        ((x0 + third_width, y1 - 2 * third_height), (x0 + 2 * third_width, y1 - third_height)),  # 5
+        ((x0 + 2 * third_width, y1 - 2 * third_height), (x1, y1 - third_height)),  # 6
+        ((x0, y0), (x0 + third_width, y1 - 2 * third_height)),  # 7
+        ((x0 + third_width, y0), (x0 + 2 * third_width, y1 - 2 * third_height)),  # 8
+        ((x0 + 2 * third_width, y0), (x1, y1 - 2 * third_height)),  # 9
     ]
 
     # Add each cropped section as a new page
-    for lower_left, upper_right in coords:
+    for lower_left, upper_right in coords_correct:
         new_page = copy.copy(page)
         new_page.cropbox.lower_left = lower_left
         new_page.cropbox.upper_right = upper_right

@@ -45,14 +45,12 @@ for i in range(len(pdf_reader.pages)):
     x1 -= padding_right
     y1 -= padding_top
 
-    # Coordinates for 9 sections (2x2 grid) - now indexed row by row (horizontally)
+    # Calculate positions for 2 sections (top and bottom)
+    mid_height = (y1 + y0) / 2
+
     coords = [
-
-        ((x0, (y0 + y1) / 2), ((x0 + x1) / 2, y1)),  # 1
-        (((x0 + x1) / 2, (y0 + y1) / 2), (x1, y1)),  # 2
-        ((x0, y0), ((x0 + x1) / 2, (y0 + y1) / 2)),  # 3
-        (((x0 + x1) / 2, y0), (x1, (y0 + y1) / 2))   # 4
-
+        ((x0, mid_height), (x1, y1)),  # Top half
+        ((x0, y0), (x1, mid_height))  # Bottom half
     ]
 
     # Add each cropped section as a new page
@@ -66,9 +64,10 @@ for i in range(len(pdf_reader.pages)):
 input_pdf.close()
 
 # Save the output PDF file
-output_pdf_path = f"PdfToImage/pdf_file/divided_four_{file_name}"
+output_pdf_path = f"PdfToImage/pdf_file/divided_two_{file_name}"
 
 with open(output_pdf_path, "wb") as output_pdf:
     pdf_writer.write(output_pdf)
 
-print("PDF page divided into four equal parts with padding successfully, row-wise indexing!")
+print("PDF page divided into two equal parts (top and bottom) with padding successfully!")
+
