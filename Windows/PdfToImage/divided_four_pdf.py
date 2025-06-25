@@ -1,28 +1,74 @@
-import os
-import json
 from pathlib import Path
+import json
+import PyPDF2
+import copy
 
-from pdf2image import convert_from_path
-
-import divided_four_pdf
-
-
-with open(r"PdfToImage\config.json", encoding='utf-8') as f:
+# Load configuration from config.json
+with open("PdfToImage/config.json", encoding='utf-8') as f:
     config = json.load(f)
     input_abs_pdfdir_path = config["device"][0]["pdf_file_path"]
     input_abs_imgdir_path = config["device"][0]["image_file_path"]
 
-# poppler/binを環境変数PATHに追加する
-poppler_dir = Path(__file__).parent.absolute() / r"poppler/bin"
-os.environ["PATH"] += os.pathsep + str(poppler_dir)
-abs_image_dir_path = Path(input_abs_imgdir_path)
+# Get PDF file path from user input
+abs_pdf_file_dirpath = Path(input_abs_pdfdir_path)
+file_name = input("Enter pdf file name!:")
+pdf_file_path = abs_pdf_file_dirpath.joinpath(str(file_name))
 
-HOME_DIR = os.path.expanduser("~")
-# PDF -> Image に変換（150dpi）
-pages = convert_from_path(str(divided_four_pdf.output_pdf_path), 300, use_cropbox=True)
-divide_six_pdf_path = Path(divided_four_pdf.output_pdf_path)
-for index, page in enumerate(pages):
-    file_name = divide_six_pdf_path.stem + "_{:02d}".format(index + 1) + ".jpeg"
-    image_path = abs_image_dir_path / file_name
-    # JPEGで保存する。
-    page.save(str(image_path), "JPEG")
+# Open the input PDF file
+input_pdf = open(pdf_file_path, "rb")
+
+# PDF reader object
+pdf_reader = PyPDF2.PdfReader(input_pdf)
+
+# Create a PDF writer object
+pdf_writer = PyPDF2.PdfWriter()
+
+# Set padding values (adjust as needed)
+padding_top = 10   # padding from the top
+padding_bottom = 10  # padding from the bottom
+padding_left = 10    # padding from the left
+padding_right = 10   # padding from the right
+
+for i in range(len(pdf_reader.pages)):
+    # create multiple objects for each page
+    page = pdf_reader.pages[i]
+
+    # Get the coordinates of the page (paper size)
+    x0 = page.mediabox.left
+    y0 = page.mediabox.bottom
+    x1 = page.mediabox.right
+    y1 = page.mediabox.top
+
+    # Adjust for padding
+    x0 += padding_left
+    y0 += padding_bottom
+    x1 -= padding_right
+    y1 -= padding_top
+
+    # Coordinates for 9 sections (2x2 grid) - now indexed row by row (horizontally)
+    coords = [
+
+        ((x0, (y0 + y1) / 2), ((x0 + x1) / 2, y1)),  # 1
+        (((x0 + x1) / 2, (y0 + y1) / 2), (x1, y1)),  # 2
+        ((x0, y0), ((x0 + x1) / 2, (y0 + y1) / 2)),  # 3
+        (((x0 + x1) / 2, y0), (x1, (y0 + y1) / 2))   # 4
+
+    ]
+
+    # Add each cropped section as a new page
+    for lower_left, upper_right in coords:
+        new_page = copy.copy(page)
+        new_page.cropbox.lower_left = lower_left
+        new_page.cropbox.upper_right = upper_right
+        pdf_writer.add_page(new_page)
+
+# Close the input PDF file
+input_pdf.close()
+
+# Save the output PDF file
+output_pdf_path = f"PdfToImage/pdf_file/divided_four_{file_name}"
+
+with open(output_pdf_path, "wb") as output_pdf:
+    pdf_writer.write(output_pdf)
+
+print("PDF page divided into four equal parts with padding successfully, row-wise indexing!")
